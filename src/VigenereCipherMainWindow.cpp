@@ -82,5 +82,30 @@ void VigenereCipherMainWindow::encryptDataSlot()
 
 void VigenereCipherMainWindow::decryptDataSlot()
 {
+    setKey();
 
+    QChar symbol = m_ui->teOriginalData->toPlainText().at(0);
+    QString enCryptedData = QString();
+    if (m_englishAlphabet.contains(symbol))
+    {
+        for (int i = 0; i < m_ui->teOriginalData->toPlainText().count(); i ++)
+        {
+            QChar symbol = m_ui->teOriginalData->toPlainText().at(i);
+
+            if (m_englishAlphabet.contains(symbol))
+            {
+                int indexSymbolCryptedData = m_englishAlphabet.indexOf(symbol);
+                int indexSymbolKey = m_englishAlphabet.indexOf(m_key.at(i));
+                int indexEncryptedSymbol = indexSymbolCryptedData - indexSymbolKey;
+
+                if (indexEncryptedSymbol < 0)
+                {
+                    indexEncryptedSymbol += m_englishAlphabet.count();
+                }
+                enCryptedData.push_back(m_englishAlphabet.at(indexEncryptedSymbol));
+            }
+        }
+        m_ui->teDecryptedData->setText(enCryptedData);
+    }
 }
+
