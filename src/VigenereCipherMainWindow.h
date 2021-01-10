@@ -52,14 +52,15 @@ private:
     void prepareConnections();
 
     /*!
+     * \brief Устанавливает ключ.
+     */
+    void setKey();
+
+    /*!
      * \brief Графический интерфейс.
      */
     Ui::VigenereCipherMainWindow *m_ui;
 
-    /*!
-     * \brief Русский алфавит.
-     */
-    QList<char> m_russianAlphabet;
     /*!
      * \brief Английский алфавит.
      */
@@ -68,6 +69,11 @@ private:
      * \brief Список символов.
      */
     QList<char> m_symbolList;
+
+    /*!
+     * \brief ключ.
+     */
+    QString m_key;
 
 };
 #endif // VIGENERECIPHERMAINWINDOW_H
