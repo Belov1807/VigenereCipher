@@ -15,6 +15,35 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout_3">
+    <item row="1" column="0">
+     <widget class="QFrame" name="frKey">
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="4" column="0">
+        <widget class="QLineEdit" name="leKey"/>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="lKeyHeader">
+         <property name="text">
+          <string>Ключ</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QPushButton" name="pbRandomKey">
+         <property name="text">
+          <string>Сгенерировать случайный ключ</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
     <item row="0" column="0">
      <widget class="QFrame" name="frOriginalData">
       <property name="frameShape">
@@ -38,29 +67,7 @@
          </item>
         </layout>
        </item>
-      </layout>
-     </widget>
-    </item>
-    <item row="1" column="0">
-     <widget class="QFrame" name="frKey">
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <layout class="QGridLayout" name="gridLayout_2">
-       <item row="4" column="0">
-        <widget class="QLineEdit" name="leKey"/>
-       </item>
-       <item row="3" column="0">
-        <widget class="QLabel" name="lKeyHeader">
-         <property name="text">
-          <string>Ключ</string>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="0">
+       <item row="2" column="0" colspan="2">
         <layout class="QHBoxLayout" name="horizontalLayout">
          <item>
           <widget class="QPushButton" name="pbEncryptData">
@@ -95,7 +102,7 @@
          <item>
           <widget class="QLabel" name="lDecryptedDataHeader">
            <property name="text">
-            <string>Итоговые данные</string>
+            <string>Преобразованные данные</string>
            </property>
           </widget>
          </item>
@@ -106,9 +113,23 @@
            </property>
           </widget>
          </item>
+         <item>
+          <widget class="QPushButton" name="pbCopyInClipboard">
+           <property name="text">
+            <string>Скопировать в буфер обмена</string>
+           </property>
+          </widget>
+         </item>
         </layout>
        </item>
       </layout>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QPushButton" name="pbClearForm">
+      <property name="text">
+       <string>Очистить форму</string>
+      </property>
      </widget>
     </item>
    </layout>

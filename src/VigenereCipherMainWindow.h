@@ -37,6 +37,26 @@ private slots:
      */
     void decryptDataSlot();
 
+    /*!
+     * \brief Сгенерировать случайный ключ.
+     */
+    void generateRandomKeySlot();
+
+    /*!
+     * \brief Копировать в буффер обмена.
+     */
+    void copyInClipboardSlot();
+
+    /*!
+     * \brief Очистить форму.
+     */
+    void clearFormSlot();
+
+    /*!
+     * \brief Обновляет состояние формы.
+     */
+    void updateFormSlot();
+
 private:
     /*!
      * \brief Заполнение исходных данных
@@ -62,13 +82,9 @@ private:
     Ui::VigenereCipherMainWindow *m_ui;
 
     /*!
-     * \brief Английский алфавит.
+     * \brief Список всех символов.
      */
-    QList<QChar> m_englishAlphabet;
-    /*!
-     * \brief Список символов.
-     */
-    QList<char> m_symbolList;
+    QList<QChar> m_allSymbolsList;
 
     /*!
      * \brief ключ.
