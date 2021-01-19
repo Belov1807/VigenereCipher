@@ -5,8 +5,6 @@
 #include <QClipboard>
 #include <QFile>
 
-//#include <QPlastiqueStyle>
-
 VigenereCipherMainWindow::VigenereCipherMainWindow(QWidget *parent) :
     QMainWindow(parent),
     m_ui(new Ui::VigenereCipherMainWindow),
@@ -14,8 +12,6 @@ VigenereCipherMainWindow::VigenereCipherMainWindow(QWidget *parent) :
 {
     m_ui->setupUi(this);
     prepareStyle();
-
-    //QApplication::setStyle(new QPlastiqueStyle());
 
     fillingInitialData();
     prepareUi();
@@ -34,23 +30,29 @@ void VigenereCipherMainWindow::prepareUi()
     {
         m_ui->pbEncryptData->setEnabled(false);
         m_ui->pbDecryptData->setEnabled(false);
-        m_ui->pbCopyInClipboard->setEnabled(false);
         m_ui->pbClearForm->setEnabled(false);
     }
     else
     {
         m_ui->pbEncryptData->setEnabled(true);
         m_ui->pbDecryptData->setEnabled(true);
-        m_ui->pbCopyInClipboard->setEnabled(true);
         m_ui->pbClearForm->setEnabled(true);
     }
 
-//    m_ui->toolBar.s
+    if (m_ui->teDecryptedData->toPlainText() == QString())
+    {
+        m_ui->pbCopyInClipboard->setEnabled(false);
+    }
+    else
+    {
+        m_ui->pbCopyInClipboard->setEnabled(true);
+    }
 }
 
 void VigenereCipherMainWindow::prepareConnections()
 {
     connect(m_ui->teOriginalData, SIGNAL(textChanged()), this, SLOT(updateFormSlot()));
+    connect(m_ui->teDecryptedData, SIGNAL(textChanged()), this, SLOT(updateFormSlot()));
     connect(m_ui->leKey, SIGNAL(textChanged(const QString &)), this, SLOT(updateFormSlot()));
 
     connect(m_ui->pbEncryptData, SIGNAL(clicked()), this, SLOT(encryptDataSlot()));
@@ -72,9 +74,11 @@ void VigenereCipherMainWindow::fillingInitialData()
     QList<QChar> capitalEnglishAlphabet = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
     QList<QChar> lowerEnglishAlphabet = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
     QList<QChar> symbolList = { ' ', '+','!','@','#','$','%','^','&','*','[',']',')','(','=','`',':',';','{','}','.',',','<','>','"','?','/','\''};
+    QList<QChar> numberList = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
     m_allSymbolsList.append(capitalEnglishAlphabet);
     m_allSymbolsList.append(lowerEnglishAlphabet);
     m_allSymbolsList.append(symbolList);
+    m_allSymbolsList.append(numberList);
 }
 
 void VigenereCipherMainWindow::setKey()
@@ -194,5 +198,4 @@ void VigenereCipherMainWindow::prepareStyle()
     styleFile.close();
 
     setWindowIcon(QIcon(":/icons/windowIcon"));
-
 }
