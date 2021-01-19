@@ -7,11 +7,11 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>600</height>
+    <height>493</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>VigenereCipherMainWindow</string>
+   <string>Шифрование шифром Виженера</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout_3">
@@ -30,7 +30,7 @@
        <item row="3" column="0">
         <widget class="QLabel" name="lKeyHeader">
          <property name="text">
-          <string>Ключ</string>
+          <string>Ключ шифрования</string>
          </property>
         </widget>
        </item>
@@ -143,8 +143,19 @@
      <height>22</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>Меню</string>
+    </property>
+    <addaction name="aExit"/>
+   </widget>
+   <addaction name="menu"/>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
+  <action name="aExit">
+   <property name="text">
+    <string>Выход</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

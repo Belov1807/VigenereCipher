@@ -3,6 +3,9 @@
 
 #include <QDateTime>
 #include <QClipboard>
+#include <QFile>
+
+//#include <QPlastiqueStyle>
 
 VigenereCipherMainWindow::VigenereCipherMainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -10,6 +13,9 @@ VigenereCipherMainWindow::VigenereCipherMainWindow(QWidget *parent) :
     m_key(QString())
 {
     m_ui->setupUi(this);
+    prepareStyle();
+
+    //QApplication::setStyle(new QPlastiqueStyle());
 
     fillingInitialData();
     prepareUi();
@@ -38,6 +44,8 @@ void VigenereCipherMainWindow::prepareUi()
         m_ui->pbCopyInClipboard->setEnabled(true);
         m_ui->pbClearForm->setEnabled(true);
     }
+
+//    m_ui->toolBar.s
 }
 
 void VigenereCipherMainWindow::prepareConnections()
@@ -50,6 +58,8 @@ void VigenereCipherMainWindow::prepareConnections()
     connect(m_ui->pbRandomKey, SIGNAL(clicked()), this, SLOT(generateRandomKeySlot()));
     connect(m_ui->pbCopyInClipboard, SIGNAL(clicked()), this, SLOT(copyInClipboardSlot()));
     connect(m_ui->pbClearForm, SIGNAL(clicked()), this, SLOT(clearFormSlot()));
+
+    connect(m_ui->aExit, SIGNAL(triggered()), this, SLOT(close()));
 }
 
 void VigenereCipherMainWindow::updateFormSlot()
@@ -173,4 +183,16 @@ void VigenereCipherMainWindow::clearFormSlot()
     m_key = QString();
 
     m_ui->lDecryptedDataHeader->setText("Преобразованные данные");
+}
+
+void VigenereCipherMainWindow::prepareStyle()
+{
+    QFile styleFile(":/qss/style");
+    styleFile.open(QFile::ReadOnly);
+    QString styleSheet = QString( styleFile.readAll());
+    setStyleSheet(styleSheet);
+    styleFile.close();
+
+    setWindowIcon(QIcon(":/icons/windowIcon"));
+
 }

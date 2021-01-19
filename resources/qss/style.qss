@@ -1,0 +1,83 @@
+QMainWindow {
+background-color: #352A2A;
+}
+
+QMenuBar {
+background-color: #4D4545;
+color: silver;
+}
+
+QMenu {
+background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+stop: 0 #321616, stop: 1 #432828);
+color: silver;
+
+}
+
+
+QMenuBar::item:selected {
+background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+stop: 0 #321616, stop: 1 #432828);
+}
+
+QMenu::item:selected {
+background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+stop: 0 #522323, stop: 1 #572626);
+}
+
+QFrame {
+background-color: #4D4545;
+}
+
+QFrame#frOriginalData,
+QFrame#frKey,
+QFrame#frDecryptedData {
+border: 2px solid silver;
+}
+
+/*background-color: red;*/
+QPushButton {
+border: 1px solid #8f8f91;
+border-radius: 6px;
+background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+stop: 0 #321616, stop: 1 #432828);
+color: silver;
+margin-top: 2px;
+}
+
+QPushButton:hover {
+border: 2px solid #8f8f91;
+border-radius: 6px;
+background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+stop: 0 #522323, stop: 1 #572626);
+color: silver;
+}
+
+QPushButton:pressed {
+border: 2px solid #8f8f91;
+border-radius: 6px;
+background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+stop: 0 #522323, stop: 1 #572626);
+color: silver;
+margin-left: 2px;
+margin-right: 2px;
+margin-bottom: 2px;
+margin-top: 2px;
+
+}
+
+QPushButton:disabled {
+background-color: #5B4C4C;
+color: #352A2A;
+}
+
+QLabel {
+/*color: #FCFBF0;*/
+color: silver;
+}
+
+QTextEdit,
+QLineEdit {
+background-color: #FCFBF0;
+color: #352A2A;
+}

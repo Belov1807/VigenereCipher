@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/qss">
+        <file alias="style">resources/qss/style.qss</file>
+    </qresource>
+    <qresource prefix="/icons">
+        <file alias="windowIcon">resources/icons/windowIcon.png</file>
+    </qresource>
+</RCC>

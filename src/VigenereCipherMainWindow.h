@@ -77,6 +77,11 @@ private:
     void setKey();
 
     /*!
+     * \brief Установить стиль.
+     */
+    void prepareStyle();
+
+    /*!
      * \brief Графический интерфейс.
      */
     Ui::VigenereCipherMainWindow *m_ui;
