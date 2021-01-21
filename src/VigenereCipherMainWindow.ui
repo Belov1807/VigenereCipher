@@ -15,35 +15,6 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout_3">
-    <item row="1" column="0">
-     <widget class="QFrame" name="frKey">
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <layout class="QGridLayout" name="gridLayout_2">
-       <item row="4" column="0">
-        <widget class="QLineEdit" name="leKey"/>
-       </item>
-       <item row="3" column="0">
-        <widget class="QLabel" name="lKeyHeader">
-         <property name="text">
-          <string>Ключ шифрования</string>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="0">
-        <widget class="QPushButton" name="pbRandomKey">
-         <property name="text">
-          <string>Сгенерировать случайный ключ</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-    </item>
     <item row="0" column="0">
      <widget class="QFrame" name="frOriginalData">
       <property name="frameShape">
@@ -130,6 +101,35 @@
       <property name="text">
        <string>Очистить форму</string>
       </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QFrame" name="frKey">
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="4" column="0">
+        <widget class="QLineEdit" name="leKey"/>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="lKeyHeader">
+         <property name="text">
+          <string>Ключ шифрования</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QPushButton" name="pbRandomKey">
+         <property name="text">
+          <string>Сгенерировать случайный ключ</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </item>
    </layout>
